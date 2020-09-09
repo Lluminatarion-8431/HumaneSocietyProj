@@ -257,7 +257,41 @@ namespace HumaneSociety
 
         internal static void UpdateAnimal(int animalId, Dictionary<int, string> updates)
         {
-            
+            var animalFromDb = db.Animals.Where(a => a.AnimalId == animalId).Single();
+
+            foreach (KeyValuePair<int, string> item in updates)
+            {
+                int key = item.Key;
+                switch (key)
+                {
+                    case 1:
+                        animalFromDb.CategoryId = Convert.ToInt32(updates[1]);
+                        break;
+                    case 2:
+                        animalFromDb.Name = updates[2];
+                        break;
+                    case 3:
+                        animalFromDb.Age = Convert.ToInt32(updates[3]);
+                        break;
+                    case 4:
+                        animalFromDb.Demeanor = updates[4];
+                        break;
+                    case 5:
+                        animalFromDb.KidFriendly = Convert.ToBoolean(updates[5]);
+                        break;
+                    case 6:
+                        animalFromDb.PetFriendly = Convert.ToBoolean(updates[6]);
+                        break;
+                    case 7:
+                        animalFromDb.Weight = Convert.ToInt32(updates[7]);
+                        break;
+                    case 8:
+                        animalFromDb.AnimalId = Convert.ToInt32(updates[8]);
+                        break;
+                }
+            }
+
+            db.SubmitChanges();
         }
 
         internal static void RemoveAnimal(Animal animal)
