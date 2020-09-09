@@ -1,0 +1,10 @@
+INSERT INTO dbo.Animals VALUES ('Jax', 8, 2, 'Hyper', 1, 0 , 'Male', 'Available', 1, 1, 5);
+INSERT INTO dbo.Animals VALUES ('Roxxie', 12, 2, 'Calm', 1, 1 , 'Female', 'Available', 1, 1, 5);
+INSERT INTO dbo.Animals VALUES ('Snickers', 16, 5, 'Prickly', 0, 0 , 'Female', 'Available', 2, 2, 2);
+INSERT INTO dbo.Animals VALUES ('Crookshanks', 10, 4, 'Friendly', 1, 1 , 'Male', 'Available', 2, 2, 4);
+INSERT INTO dbo.Animals VALUES ('Lily', 5, 4, 'Calm', 1, 1 , 'Female', 'Available', 3, 3, 3);
+INSERT INTO dbo.Animals VALUES ('Sammy', 8, 2, 'Skittish', 1, 0 , 'Male', 'Available', 3, 3, 4);
+INSERT INTO dbo.Animals VALUES ('Draco', 5, 6, 'Hyper', 1, 0 , 'Male', 'Available', 4, 4, 2);
+INSERT INTO dbo.Animals VALUES ('Luna', 8, 2, 'Calm', 0, 1 , 'Female', 'Available', 4, 4, 3);
+INSERT INTO dbo.Animals VALUES ('Shelly', 3, 2, 'Shy', 1, 1 , 'Female', 'Available', 5, 5, 1);
+INSERT INTO dbo.Animals VALUES ('Chip', 2, 1, 'Talkative', 1, 1 , 'Male', 'Available', 5, 5, 1);
