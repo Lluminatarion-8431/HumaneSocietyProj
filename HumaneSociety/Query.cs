@@ -166,7 +166,64 @@ namespace HumaneSociety
         // TODO: Allow any of the CRUD operations to occur here
         internal static void RunEmployeeQueries(Employee employee, string crudOperation)
         {
-            throw new NotImplementedException();
+            if (crudOperation == "create")
+            {
+                db.Employees.InsertOnSubmit(employee);
+                try
+                {
+                    db.SubmitChanges();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    db.SubmitChanges();
+                }
+            }
+            else if (crudOperation == "delete")
+            {
+
+                Employee employeeFromDb = db.Employees.Where(a => a.EmployeeId == employee.EmployeeId).FirstOrDefault();
+                db.Employees.DeleteOnSubmit(employeeFromDb);
+
+                try
+                {
+                    db.SubmitChanges();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    // Provide for exceptions.
+                }
+            }
+            else if (crudOperation == "read")
+            {
+                Employee employeeFromDb = db.Employees.Where(a => a == employee).FirstOrDefault();
+                Console.WriteLine(employeeFromDb.FirstName + "\n" +
+                    employeeFromDb.LastName + "\n" +
+                    employeeFromDb.UserName + "\n" +
+                    employeeFromDb.Password + "\n" +
+                    employeeFromDb.EmployeeNumber + "\n" +
+                    employeeFromDb.Email);
+            }
+            else if (crudOperation == "update")
+            {
+                Employee employeeFromDb = db.Employees.Where(a => a.EmployeeId == employee.EmployeeId).FirstOrDefault();
+                employeeFromDb.FirstName = employee.FirstName;
+                employeeFromDb.LastName = employee.LastName;
+                employeeFromDb.UserName = employee.UserName;
+                employeeFromDb.Password = employee.Password;
+                employeeFromDb.EmployeeNumber = employee.EmployeeNumber;
+                employeeFromDb.Email = employee.Email;
+
+                try
+                {
+                    db.SubmitChanges();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
         }
 
         // TODO: Animal CRUD Operations
