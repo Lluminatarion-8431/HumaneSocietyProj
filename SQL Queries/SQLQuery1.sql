@@ -1,0 +1,10 @@
+INSERT INTO dbo.Rooms VALUES (1, 1);
+INSERT INTO dbo.Rooms VALUES (2, 3);
+INSERT INTO dbo.Rooms VALUES (3, 5);
+INSERT INTO dbo.Rooms VALUES (4, 6);
+INSERT INTO dbo.Rooms VALUES (5, 8);
+INSERT INTO dbo.Rooms VALUES (6, null);
+INSERT INTO dbo.Rooms VALUES (7, null);
+INSERT INTO dbo.Rooms VALUES (8, null);
+INSERT INTO dbo.Rooms VALUES (9, null);
+INSERT INTO dbo.Rooms VALUES (10, null);
