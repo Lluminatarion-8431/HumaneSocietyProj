@@ -416,18 +416,42 @@ namespace HumaneSociety
 
         internal static void RemoveAdoption(int animalId, int clientId)
         {
-            throw new NotImplementedException();
+            Adoption adoption = db.Adoptions.Where(a => a.AnimalId == animalId && a.ClientId == clientId).FirstOrDefault();
+            db.Adoptions.DeleteOnSubmit(adoption);
+
+            try
+            {
+                db.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                db.SubmitChanges();
+            }
         }
 
         // TODO: Shots Stuff
         internal static IQueryable<AnimalShot> GetShots(Animal animal)
         {
-            throw new NotImplementedException();
+            IQueryable<AnimalShot> shotsFromDB = db.AnimalShots.Where(a => a.Animal == animal);
+            return shotsFromDB;
         }
 
         internal static void UpdateShot(string shotName, Animal animal)
         {
-            throw new NotImplementedException();
+            Shot shotFromDB = db.Shots.Where(a => a.Name == shotName).FirstOrDefault();
+            AnimalShot animalShot = db.AnimalShots.Where(a => a.AnimalId == animal.AnimalId && a.ShotId == shotFromDB.ShotId).FirstOrDefault();
+            animalShot.DateReceived = DateTime.Now;
+
+            try
+            {
+                db.SubmitChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                db.SubmitChanges();
+            }
         }
     }
 }
